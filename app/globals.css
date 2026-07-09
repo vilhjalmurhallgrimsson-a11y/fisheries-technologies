@@ -24,3 +24,41 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: #111827;
+}
+
+::selection {
+  background: #1d4ed8;
+  color: white;
+}
+:root {
+
+  --background: #ffffff;
+
+  --foreground: #0f172a;
+
+  --primary: #2563eb;
+
+  --primary-hover: #1d4ed8;
+
+  --secondary: #eff6ff;
+
+  --muted: #64748b;
+
+  --border: #e2e8f0;
+
+  --card: #ffffff;
+
+  --hero: #f8fbff;
+
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
