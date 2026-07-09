@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
@@ -50,9 +51,13 @@ export default function Header() {
       >
         {/* Logo */}
         <a href="#" className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-700 text-sm font-bold text-white shadow-md">
-            FT
-          </div>
+          <Image
+  src="/images/FTSquareDark.png"
+  alt="Fisheries Technologies"
+  width={60}
+  height={62}
+  priority
+/>
 
           <div>
             <p className="text-sm font-bold tracking-tight text-slate-950">

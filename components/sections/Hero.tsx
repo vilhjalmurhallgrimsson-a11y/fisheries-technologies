@@ -14,13 +14,21 @@ import { heroStats } from "@/data/stats";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 via-white to-white py-28">
-      {/* Background Glow */}
-      <div className="absolute inset-x-0 top-0 -z-10 h-80 bg-[radial-gradient(circle_at_top,_rgba(37,99,235,0.20),_transparent_60%)]" />
+    <section
+      className="relative overflow-hidden bg-slate-950 py-28"
+      style={{
+        backgroundImage: "url('/images/hero-background-top4.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="absolute inset-0 bg-slate-950/10" />
+<div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-950/15 to-transparent" />
+
 
       <Container>
-        <div className="grid items-center gap-20 lg:grid-cols-2">
-          {/* LEFT COLUMN */}
+        <div className="relative z-10 grid items-center gap-20 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -30,27 +38,22 @@ export default function Hero() {
               <Badge>The Fisheries Manager</Badge>
             </div>
 
-            <h1 className="text-5xl font-bold tracking-tight text-slate-900 lg:text-6xl">
+            <h1 className="text-5xl font-bold tracking-tight text-white lg:text-6xl">
               Governing Fisheries
               <br />
               at Every Scale
             </h1>
 
-            <p className="mt-8 max-w-2xl text-xl leading-9 text-slate-600">
+            <p className="mt-8 max-w-2xl text-xl leading-9 text-slate-200">
               Supporting artisanal fisheries, industrial fleets, national
               authorities and regional organizations through one integrated
               fisheries governance platform.
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Button href="#contact">
-                Book a Demo
-              </Button>
+              <Button href="#contact">Book a Demo</Button>
 
-              <Button
-                href="#platform"
-                variant="secondary"
-              >
+              <Button href="#platform" variant="secondary">
                 Explore Platform
               </Button>
             </div>
@@ -58,48 +61,46 @@ export default function Hero() {
             <div className="mt-14 grid grid-cols-3 gap-8">
               {heroStats.map((stat) => (
                 <StatCard
-                  key={stat.label}
-                  value={stat.value}
-                  label={stat.label}
-                />
+  key={stat.label}
+  value={stat.value}
+  label={stat.label}
+  light
+/>
               ))}
             </div>
           </motion.div>
 
-          {/* RIGHT COLUMN */}
           <motion.div
             className="relative"
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{
-              duration: 0.8,
-              delay: 0.2,
-            }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <DashboardPreview />
-<FloatingCard
-  title="Electronic Logbooks"
-  text="Real-time reporting"
-  icon={FileText}
-  className="-left-10 top-12"
-  delay={0.5}
-/>
 
-<FloatingCard
-  title="VMS Tracking"
-  text="Live vessel positions"
-  icon={Radar}
-  className="-right-10 top-24"
-  delay={0.7}
-/>
+            <FloatingCard
+              title="Electronic Logbooks"
+              text="Real-time reporting"
+              icon={FileText}
+              className="-left-10 top-12"
+              delay={0.5}
+            />
 
-<FloatingCard
-  title="AI Validation"
-  text="Data quality checks"
-  icon={ShieldCheck}
-  className="bottom-12 left-10"
-  delay={0.9}
-/>
+            <FloatingCard
+              title="VMS Tracking"
+              text="Live vessel positions"
+              icon={Radar}
+              className="-right-10 top-24"
+              delay={0.7}
+            />
+
+            <FloatingCard
+              title="AI Validation"
+              text="Data quality checks"
+              icon={ShieldCheck}
+              className="bottom-12 left-10"
+              delay={0.9}
+            />
           </motion.div>
         </div>
       </Container>
