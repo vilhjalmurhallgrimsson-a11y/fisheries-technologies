@@ -19,14 +19,14 @@ export default function Hero() {
     <section
       className="relative overflow-hidden bg-slate-950 py-28"
       style={{
-        backgroundImage: "url('/images/top4.png')",
+        backgroundImage: "url('/images/top.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
     >
       <div className="absolute inset-0 bg-slate-950/20" />
-<div className="absolute inset-0 bg-gradient-to-r from-slate-950/20 via-slate-950/00 to-transparent" />
+<div className="absolute inset-0 bg-gradient-to-r from-slate-950/50 via-slate-950/20 to-transparent" />
 
 
       <Container>
