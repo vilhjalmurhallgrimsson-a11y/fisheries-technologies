@@ -11,20 +11,22 @@ import DashboardPreview from "@/components/ui/DashboardPreview";
 import FloatingCard from "@/components/ui/FloatingCard";
 
 import { heroStats } from "@/data/stats";
+const showDashboard = false;
+const showFloatingCards = false;
 
 export default function Hero() {
   return (
     <section
       className="relative overflow-hidden bg-slate-950 py-28"
       style={{
-        backgroundImage: "url('/images/hero-background-top4.png')",
+        backgroundImage: "url('/images/top4.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="absolute inset-0 bg-slate-950/10" />
-<div className="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-950/15 to-transparent" />
+      <div className="absolute inset-0 bg-slate-950/20" />
+<div className="absolute inset-0 bg-gradient-to-r from-slate-950/20 via-slate-950/00 to-transparent" />
 
 
       <Container>
@@ -76,7 +78,10 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <DashboardPreview />
+            
+            {showDashboard && <DashboardPreview />}
+            {showFloatingCards && (
+              <>
 
             <FloatingCard
               title="Electronic Logbooks"
@@ -101,6 +106,8 @@ export default function Hero() {
               className="bottom-12 left-10"
               delay={0.9}
             />
+            </>
+            )}
           </motion.div>
         </div>
       </Container>
