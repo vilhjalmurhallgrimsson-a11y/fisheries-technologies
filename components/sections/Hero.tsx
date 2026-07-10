@@ -19,7 +19,7 @@ export default function Hero() {
     <section
       className="relative overflow-hidden bg-slate-950 py-28"
       style={{
-        backgroundImage: "url('/images/top.png')",
+        backgroundImage: "url('/images/top6.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
