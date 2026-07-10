@@ -1,8 +1,21 @@
 @import "tailwindcss";
 
+/* =========================================================
+   Theme variables
+   ========================================================= */
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
+
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --secondary: #eff6ff;
+
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --card: #ffffff;
+  --hero: #f8fbff;
 }
 
 @theme inline {
@@ -12,56 +25,43 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* =========================================================
+   Global
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: #ffffff;
-  color: #111827;
-}
-
-::selection {
-  background: #1d4ed8;
-  color: white;
-}
-:root {
-
-  --background: #ffffff;
-
-  --foreground: #0f172a;
-
-  --primary: #2563eb;
-
-  --primary-hover: #1d4ed8;
-
-  --secondary: #eff6ff;
-
-  --muted: #64748b;
-
-  --border: #e2e8f0;
-
-  --card: #ffffff;
-
-  --hero: #f8fbff;
-
-}
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
 }
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+}
+
+::selection {
+  background: var(--primary-hover);
+  color: #ffffff;
+}
+
+/* =========================================================
+   Fisheries Spectrum section
+   ========================================================= */
+
 .fisheries-spectrum {
   position: relative;
   overflow: hidden;
@@ -79,6 +79,10 @@ html {
   width: min(100%, 1700px);
   margin: 0 auto;
 }
+
+/* =========================================================
+   Header
+   ========================================================= */
 
 .fisheries-spectrum__header {
   max-width: 1150px;
@@ -126,16 +130,24 @@ html {
   line-height: 1.5;
 }
 
+/* =========================================================
+   Grid
+   ========================================================= */
+
 .fisheries-spectrum__grid {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 8px;
 }
 
+/* =========================================================
+   Card
+   ========================================================= */
+
 .spectrum-card {
   position: relative;
-  overflow: hidden;
   min-width: 0;
+  overflow: hidden;
   border: 1px solid rgba(208, 219, 232, 0.7);
   border-radius: 12px;
   background: #ffffff;
@@ -150,32 +162,58 @@ html {
   box-shadow: 0 20px 42px rgba(13, 41, 72, 0.14);
 }
 
+/* =========================================================
+   Image area
+   ========================================================= */
+
 .spectrum-card__image-container {
   position: relative;
   height: 320px;
   overflow: hidden;
+  background: #dcecf5;
 }
+
+/*
+  Staðsetning og stærð myndarinnar kemur frá inline style:
+  width: zoom
+  left: 50%
+  top: 50%
+  transform: translate(calc(...), calc(...))
+*/
 
 .spectrum-card__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 500ms ease;
+  position: absolute;
+  display: block;
+  height: auto;
+  max-width: none;
+  user-select: none;
+  pointer-events: none;
+  will-change: transform, width;
+  transition:
+    width 350ms ease,
+    transform 350ms ease;
 }
 
-.spectrum-card:hover .spectrum-card__image {
-  transform: scale(1.045);
-}
+/*
+  Ekki setja hover transform hér.
+  Það myndi yfirskrifa xOffset og yOffset.
+*/
 
 .spectrum-card__image-shade {
   position: absolute;
   inset: 0;
+  z-index: 1;
+  pointer-events: none;
   background: linear-gradient(
     to bottom,
     transparent 62%,
     rgba(4, 20, 39, 0.11)
   );
 }
+
+/* =========================================================
+   Card content
+   ========================================================= */
 
 .spectrum-card__body {
   position: relative;
@@ -189,6 +227,7 @@ html {
   position: absolute;
   top: 0;
   left: 50%;
+  z-index: 2;
   display: grid;
   width: 78px;
   height: 78px;
@@ -207,6 +246,7 @@ html {
   font-size: 23px;
   font-weight: 700;
   line-height: 1.2;
+  letter-spacing: -0.025em;
 }
 
 .spectrum-card__line {
@@ -225,7 +265,9 @@ html {
   line-height: 1.6;
 }
 
-/* Minni skjáir */
+/* =========================================================
+   Responsive
+   ========================================================= */
 
 @media (max-width: 1350px) {
   .fisheries-spectrum__grid {
@@ -251,9 +293,21 @@ html {
   .fisheries-spectrum__header {
     margin-bottom: 34px;
   }
+
+  .fisheries-spectrum__header h2 {
+    font-size: clamp(38px, 7vw, 54px);
+  }
+
+  .fisheries-spectrum__header p {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 560px) {
+  .fisheries-spectrum {
+    padding: 55px 16px 70px;
+  }
+
   .fisheries-spectrum__grid {
     grid-template-columns: 1fr;
   }
@@ -264,7 +318,7 @@ html {
 
   .spectrum-card__body {
     min-height: auto;
-    padding-bottom: 34px;
+    padding: 40px 24px 34px;
   }
 
   .fisheries-spectrum__header h2 {
