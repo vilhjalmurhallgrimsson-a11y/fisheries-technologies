@@ -58,7 +58,7 @@ const spectrumItems: SpectrumItem[] = [
     title: "Small-scale",
     description:
       "Streamlining operations and improving data collection and reporting.",
-    image: "/images/spectrum/small-scale-II.png",
+    image: "/images/spectrum/small-scale-II.png?v=2",
     icon: Ship,
     accent: "#1685dc",
     imageBackground: "#dcecf5",
@@ -97,7 +97,7 @@ const spectrumItems: SpectrumItem[] = [
     title: "National",
     description:
       "Enabling data-driven decisions and effective fisheries management.",
-    image: "/images/spectrum/national-fisheries.png",
+    image: "/images/spectrum/national-fisheries.png?v=2",
     icon: Building2,
     accent: "#17b7a5",
     imageBackground: "#dcecf5",
