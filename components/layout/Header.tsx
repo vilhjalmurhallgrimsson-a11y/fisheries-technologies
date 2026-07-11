@@ -1,141 +1,88 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { Menu } from "lucide-react";
 
-import Container from "@/components/ui/Container";
-import Button from "@/components/ui/Button";
-
-import useActiveSection from "@/hooks/useActiveSection";
-
-const navItems = [
-  { label: "Platform", href: "#platform" },
-  { label: "Solutions", href: "#solutions" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+const navigation = [
+  { name: "Platform", href: "#platform" },
+  { name: "Solutions", href: "#solutions" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  const active = useActiveSection([
-    "platform",
-    "solutions",
-    "projects",
-    "contact",
-  ]);
-
-  useEffect(() => {
-    const onScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    onScroll();
-
-    window.addEventListener("scroll", onScroll);
-
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header
-      className={`sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-xl transition-all duration-300 ${
-        isScrolled ? "shadow-lg" : ""
-      }`}
-    >
-      <Container
-        className={`flex items-center justify-between transition-all duration-300 ${
-          isScrolled ? "h-16" : "h-20"
-        }`}
-      >
+    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl">
+      <div className="mx-auto flex h-[84px] w-[min(1540px,calc(100%-40px))] items-center justify-between">
+
         {/* Logo */}
-        <a href="#" className="flex items-center gap-3">
+
+        <Link
+          href="/"
+          className="flex items-center gap-4 transition hover:opacity-90"
+        >
           <Image
-  src="/images/FTSquareDark.png"
-  alt="Fisheries Technologies"
-  width={60}
-  height={62}
-  priority
-/>
+            src="/images/FTSquareDark.png"
+            alt="Fisheries Technologies"
+            width={56}
+            height={56}
+            priority
+            className="rounded-xl shadow-sm"
+          />
 
-          <div>
-            <p className="text-sm font-bold tracking-tight text-slate-950">
+          <div className="leading-tight">
+
+            <div className="text-[18px] font-extrabold tracking-[-0.02em] text-[#07142c]">
               Fisheries Technologies
-            </p>
+            </div>
 
-            <p className="text-xs text-slate-500">
+            <div className="mt-1 text-sm text-[#607087]">
               The Fisheries Manager
-            </p>
+            </div>
+
           </div>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-8 md:flex">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
+
+        <nav className="hidden items-center gap-10 lg:flex">
+          {navigation.map((item, index) => (
+            <Link
+              key={item.name}
               href={item.href}
-              className={`relative text-sm font-medium transition-colors duration-200 ${
-                active === item.href.replace("#", "")
-                  ? "text-blue-700"
-                  : "text-slate-600 hover:text-slate-950"
+              className={`relative py-2 text-[15px] font-semibold transition ${
+                index === 0
+                  ? "text-[#07142c]"
+                  : "text-[#4b6078] hover:text-[#0d5df4]"
               }`}
             >
-              {item.label}
+              {item.name}
 
-              {active === item.href.replace("#", "") && (
-                <span className="absolute -bottom-2 left-0 h-0.5 w-full rounded-full bg-blue-700" />
+              {index === 0 && (
+                <span className="absolute bottom-0 left-1/2 h-[2px] w-8 -translate-x-1/2 rounded-full bg-[#0d5df4]" />
               )}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        {/* Desktop CTA */}
-        <div className="hidden sm:block">
-          <Button href="#contact">
+        {/* CTA */}
+
+        <div className="flex items-center gap-4">
+
+          <button className="rounded-xl bg-[#0d5df4] px-7 py-3 text-sm font-bold text-white shadow-[0_12px_26px_rgba(13,93,244,0.24)] transition hover:-translate-y-0.5 hover:bg-[#0a4ed4]">
             Book Demo
-          </Button>
+          </button>
+
+          {/* Mobile */}
+
+          <button className="rounded-xl border border-slate-200 p-3 lg:hidden">
+            <Menu size={22} />
+          </button>
+
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          type="button"
-          onClick={() => setIsOpen(!isOpen)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 transition hover:bg-slate-50 md:hidden"
-          aria-label="Open navigation menu"
-        >
-          {isOpen ? "✕" : "☰"}
-        </button>
-      </Container>
-
-      {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="border-t border-slate-200 bg-white md:hidden">
-          <Container className="py-5">
-            <nav className="flex flex-col gap-5">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`text-sm font-medium transition ${
-                    active === item.href.replace("#", "")
-                      ? "text-blue-700"
-                      : "text-slate-700"
-                  }`}
-                >
-                  {item.label}
-                </a>
-              ))}
-
-              <Button href="#contact">
-                Book Demo
-              </Button>
-            </nav>
-          </Container>
-        </div>
-      )}
+      </div>
     </header>
   );
 }

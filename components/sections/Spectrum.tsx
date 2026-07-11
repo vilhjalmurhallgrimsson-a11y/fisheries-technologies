@@ -2,217 +2,102 @@ import {
   Anchor,
   Building2,
   Globe2,
+  Radar,
   Ship,
-  type LucideIcon,
+  Waves,
 } from "lucide-react";
 
-type SpectrumItem = {
-  title: string;
-  description: string;
-  image: string;
-  icon: LucideIcon;
-  accent: string;
-  imageBackground?: string;
+import FeatureCard from "@/components/ui/FeatureCard";
+import SectionHeader from "@/components/ui/SectionHeader";
 
-  /**
-   * Stærð myndarinnar miðað við breidd myndasvæðisins.
-   *
-   * 100 = myndin er jafn breið og myndasvæðið
-   * 85 = zoom out
-   * 120 = zoom inn
-   */
-  zoom?: number;
-
-  /**
-   * Lárétt færsla í pixlum.
-   *
-   * Jákvæð tala = til hægri
-   * Neikvæð tala = til vinstri
-   */
-  xOffset?: number;
-
-  /**
-   * Lóðrétt færsla í pixlum.
-   *
-   * Jákvæð tala = niður
-   * Neikvæð tala = upp
-   */
-  yOffset?: number;
-};
-
-const spectrumItems: SpectrumItem[] = [
+const spectrumItems = [
   {
-    title: "Artisanal",
+    eyebrow: "Community Fisheries",
+    title: "Artisanal Fisheries",
     description:
-      "Empowering local communities and supporting sustainable livelihoods.",
+      "Accessible tools for community-based fisheries, beach landings and local data collection.",
     image: "/images/spectrum/artisinal-fisheries.png",
+    imageAlt:
+      "Artisanal fishers operating a small coastal fishing boat",
+    icon: Waves,
+    href: "#platform",
+  },
+  {
+    eyebrow: "Coastal Operations",
+    title: "Small-Scale Fisheries",
+    description:
+      "Mobile-first workflows for fishers, field officers, landing sites and local authorities.",
+    image: "/images/spectrum/small-scale.png",
+    imageAlt:
+      "Small-scale fishing vessel operating close to shore",
     icon: Anchor,
-    accent: "#25b7dd",
-    imageBackground: "#dcecf5",
-
-    zoom: 180 ,
-    xOffset: 0,
-    yOffset: -8,
+    href: "#platform",
   },
   {
-    title: "Small-scale",
+    eyebrow: "Fleet Operations",
+    title: "Commercial Fisheries",
     description:
-      "Streamlining operations and improving data collection and reporting.",
-    image: "/images/spectrum/small-scale-II.png?v=2",
-    icon: Ship,
-    accent: "#1685dc",
-    imageBackground: "#dcecf5",
-
-    zoom: 185,
-    xOffset: 0,
-    yOffset: -10,
-  },
-  {
-    title: "Commercial",
-    description:
-      "Enhancing efficiency and compliance across commercial fleets.",
+      "Connected reporting for vessels, trips, catches, landings and commercial fishing activity.",
     image: "/images/spectrum/commercial.png",
+    imageAlt:
+      "Commercial fishing vessel operating at sea",
     icon: Ship,
-    accent: "#1671cf",
-    imageBackground: "#dcecf5",
-
-    zoom: 180,
-    xOffset: 2,
-    yOffset: 8,
+    href: "#platform",
   },
   {
-    title: "Industrial",
+    eyebrow: "Large-Scale Operations",
+    title: "Industrial Fisheries",
     description:
-      "Managing complex operations with robust monitoring and control.",
+      "Scalable monitoring, compliance and operational oversight for complex industrial fleets.",
     image: "/images/spectrum/industrial-fisheries.png",
-    icon: Ship,
-    accent: "#1766c1",
-    imageBackground: "#dcecf5",
-
-    zoom: 180,
-    xOffset: -8,
-    yOffset: 5,
+    imageAlt:
+      "Modern industrial fishing vessel operating offshore",
+    icon: Radar,
+    href: "#platform",
   },
   {
-    title: "National",
+    eyebrow: "Public Administration",
+    title: "National Governance",
     description:
-      "Enabling data-driven decisions and effective fisheries management.",
-    image: "/images/spectrum/national-fisheries.png?v=2",
+      "A shared national environment for fisheries administration, monitoring and decision support.",
+    image: "/images/spectrum/National-fisheries.png",
+    imageAlt:
+      "National fisheries authority and government administration environment",
     icon: Building2,
-    accent: "#17b7a5",
-    imageBackground: "#dcecf5",
-
-    zoom: 180,
-    xOffset: -60,
-    yOffset: -5,
+    href: "#projects",
   },
   {
-    title: "Regional",
+    eyebrow: "Regional Cooperation",
+    title: "Regional Governance",
     description:
-      "Connecting data and people for collaborative regional governance.",
+      "Secure data exchange and coordinated governance across jurisdictions and regional organisations.",
     image: "/images/spectrum/regional-fisheries.png",
+    imageAlt:
+      "Regional fisheries cooperation represented by multiple national flags",
     icon: Globe2,
-    accent: "#12a999",
-    imageBackground: "#dcecf5",
-
-    zoom: 210,
-    xOffset: 0,
-    yOffset: -5,
+    href: "#projects",
   },
 ];
 
-export default function FisheriesSpectrum() {
+export default function Spectrum() {
   return (
-    <section
-      id="fisheries-spectrum"
-      className="fisheries-spectrum"
-    >
-      <div className="fisheries-spectrum__container">
-        <header className="fisheries-spectrum__header">
-          <span className="fisheries-spectrum__eyebrow">
-            Fisheries Spectrum
-          </span>
+    <section className="site-section site-section--soft">
+      <div className="site-container">
+        <SectionHeader
+          eyebrow="Fisheries Spectrum"
+          title={
+            <>
+              One platform.
+              <span> Every fisheries context.</span>
+            </>
+          }
+          description="TFM supports fisheries governance from local landing sites and small-scale operations to industrial fleets, national authorities and regional organisations."
+        />
 
-          <span
-            className="fisheries-spectrum__header-line"
-            aria-hidden="true"
-          />
-
-          <h2>One platform. Every fisheries context.</h2>
-
-          <p>
-            TFM supports governance from local landing sites to national
-            authorities and regional fisheries organizations.
-          </p>
-        </header>
-
-        <div className="fisheries-spectrum__grid">
-          {spectrumItems.map((item) => {
-            const Icon = item.icon;
-
-            const zoom = item.zoom ?? 100;
-            const xOffset = item.xOffset ?? 0;
-            const yOffset = item.yOffset ?? 0;
-
-            return (
-              <article
-                key={item.title}
-                className="spectrum-card"
-                style={
-                  {
-                    "--card-accent": item.accent,
-                  } as React.CSSProperties
-                }
-              >
-                <div
-                  className="spectrum-card__image-container"
-                  style={{
-                    backgroundColor:
-                      item.imageBackground ?? "#dcecf5",
-                  }}
-                >
-                  <img
-                    src={item.image}
-                    alt={`${item.title} fisheries`}
-                    className="spectrum-card__image"
-                    style={{
-                      width: `${zoom}%`,
-                      left: "50%",
-                      top: "50%",
-                      transform: `translate(
-                        calc(-50% + ${xOffset}px),
-                        calc(-50% + ${yOffset}px)
-                      )`,
-                    }}
-                  />
-
-                  <div
-                    className="spectrum-card__image-shade"
-                    aria-hidden="true"
-                  />
-                </div>
-
-                <div className="spectrum-card__body">
-                  <div className="spectrum-card__icon">
-                    <Icon
-                      size={32}
-                      strokeWidth={1.8}
-                      aria-hidden="true"
-                    />
-                  </div>
-
-                  <h3>{item.title}</h3>
-
-                  <span
-                    className="spectrum-card__line"
-                    aria-hidden="true"
-                  />
-
-                  <p>{item.description}</p>
-                </div>
-              </article>
-            );
-          })}
+        <div className="spectrum-grid">
+          {spectrumItems.map((item) => (
+            <FeatureCard key={item.title} {...item} />
+          ))}
         </div>
       </div>
     </section>

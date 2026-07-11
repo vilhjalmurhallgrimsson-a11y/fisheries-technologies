@@ -1,116 +1,131 @@
-"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Check } from "lucide-react";
 
-import { motion } from "framer-motion";
-import { FileText, Radar, ShieldCheck } from "lucide-react";
+type HeroProps = {
+  image?: string;
+};
 
-import Container from "@/components/ui/Container";
-import Badge from "@/components/ui/Badge";
-import Button from "@/components/ui/Button";
-import StatCard from "@/components/ui/StatCard";
-import DashboardPreview from "@/components/ui/DashboardPreview";
-import FloatingCard from "@/components/ui/FloatingCard";
+const highlights = [
+  "National Fisheries Systems",
+  "Regional Governance",
+  "Mobile Data Collection",
+  "Interoperability",
+];
 
-import { heroStats } from "@/data/stats";
-const showDashboard = false;
-const showFloatingCards = false;
-
-export default function Hero() {
+export default function Hero({
+  image = "/images/hero/fisheries-governance.png",
+}: HeroProps) {
   return (
-    <section
-      className="relative overflow-hidden bg-slate-950 py-28"
-      style={{
-        backgroundImage: "url('/images/top6.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      <div className="absolute inset-0 bg-slate-950/20" />
-<div className="absolute inset-0 bg-gradient-to-r from-slate-950/50 via-slate-950/20 to-transparent" />
+    <section className="relative isolate overflow-hidden bg-white">
+      {/* Background */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_15%_15%,rgba(191,219,254,0.45),transparent_34%),linear-gradient(180deg,#f8fbff_0%,#ffffff_100%)]"
+      />
 
+      <div
+        aria-hidden="true"
+        className="absolute -right-48 -top-32 -z-10 h-[32rem] w-[32rem] rounded-full bg-blue-100/40 blur-3xl"
+      />
 
-      <Container>
-        <div className="relative z-10 grid items-center gap-20 lg:grid-cols-2">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="mb-6">
-              <Badge>The Fisheries Manager</Badge>
-            </div>
+      <div className="mx-auto grid min-h-[760px] w-[min(1540px,calc(100%-40px))] grid-cols-1 items-center gap-14 py-16 lg:grid-cols-[0.72fr_1.28fr]">
+        {/* LEFT */}
+        <div className="relative z-10 max-w-[660px]">
+          <span className="inline-flex rounded-full bg-[#eaf3ff] px-4 py-2 text-xs font-extrabold uppercase tracking-[0.1em] text-[#0d5df4]">
+            Integrated Fisheries Governance Platform
+          </span>
 
-            <h1 className="text-5xl font-bold tracking-tight text-white lg:text-6xl">
-              Governing Fisheries
-              <br />
+          <h1 className="mt-7 text-[clamp(3.6rem,5.6vw,5.8rem)] font-extrabold leading-[0.93] tracking-[-0.06em] text-[#07142c]">
+            Governing Fisheries
+            <span className="block text-[#0d5df4]">
               at Every Scale
-            </h1>
+            </span>
+          </h1>
 
-            <p className="mt-8 max-w-2xl text-xl leading-9 text-slate-200">
-              Supporting artisanal fisheries, industrial fleets, national
-              authorities and regional organizations through one integrated
-              fisheries governance platform.
-            </p>
+          <p className="mt-7 max-w-[590px] text-[1.18rem] leading-8 text-[#607087]">
+            Supporting artisanal fisheries, commercial fleets, national
+            authorities and regional organisations through one connected
+            fisheries governance platform.
+          </p>
 
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Button href="#contact">Book a Demo</Button>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link
+              href="#contact"
+              className="inline-flex h-12 items-center gap-2 rounded-xl bg-[#0d5df4] px-6 font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-[#0a4ed4]"
+            >
+              Request a demo
+              <ArrowRight size={18} aria-hidden="true" />
+            </Link>
 
-              <Button href="#platform" variant="secondary">
-                Explore Platform
-              </Button>
-            </div>
+            <Link
+              href="#platform"
+              className="inline-flex h-12 items-center rounded-xl border border-slate-300 bg-white px-6 font-bold text-[#07142c] transition hover:border-blue-300 hover:text-[#0d5df4]"
+            >
+              Explore the platform
+            </Link>
+          </div>
 
-            <div className="mt-14 grid grid-cols-3 gap-8">
-              {heroStats.map((stat) => (
-                <StatCard
-  key={stat.label}
-  value={stat.value}
-  label={stat.label}
-  light
-/>
-              ))}
-            </div>
-          </motion.div>
+          <div className="mt-8 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
+            {highlights.map((item) => (
+              <div
+                key={item}
+                className="flex items-center gap-3 text-sm font-semibold text-[#344963]"
+              >
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#eaf3ff]">
+                  <Check
+                    size={12}
+                    strokeWidth={3}
+                    className="text-[#0d5df4]"
+                    aria-hidden="true"
+                  />
+                </span>
 
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            
-            {showDashboard && <DashboardPreview />}
-            {showFloatingCards && (
-              <>
-
-            <FloatingCard
-              title="Electronic Logbooks"
-              text="Real-time reporting"
-              icon={FileText}
-              className="-left-10 top-12"
-              delay={0.5}
-            />
-
-            <FloatingCard
-              title="VMS Tracking"
-              text="Live vessel positions"
-              icon={Radar}
-              className="-right-10 top-24"
-              delay={0.7}
-            />
-
-            <FloatingCard
-              title="AI Validation"
-              text="Data quality checks"
-              icon={ShieldCheck}
-              className="bottom-12 left-10"
-              delay={0.9}
-            />
-            </>
-            )}
-          </motion.div>
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
-      </Container>
+
+        {/* RIGHT — image flows beyond the normal content width */}
+        <div className="relative lg:-mr-[110px] lg:w-[calc(100%+110px)]">
+          <div
+            aria-hidden="true"
+            className="absolute -inset-5 -z-10 rounded-[36px] bg-blue-100/40 blur-2xl"
+          />
+
+          <div className="relative aspect-video overflow-hidden rounded-[30px] border border-slate-200 bg-[#dfeaf5] shadow-[0_30px_70px_rgba(31,66,110,0.16)]">
+            <Image
+              src={image}
+              alt="Integrated fisheries governance across field operations, fleets and national monitoring"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 68vw"
+              className="object-contain object-center"
+            />
+          </div>
+
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-3 px-1">
+            <div>
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#0d5df4]">
+                One connected platform
+              </span>
+              <p className="mt-1 text-sm font-bold text-[#07142c]">
+                From field operations to national governance
+              </p>
+            </div>
+
+            <div className="text-left sm:text-right">
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#7b8ba1]">
+                Built on
+              </span>
+              <p className="mt-1 text-sm font-semibold text-[#344963]">
+                Icelandic fisheries expertise
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
