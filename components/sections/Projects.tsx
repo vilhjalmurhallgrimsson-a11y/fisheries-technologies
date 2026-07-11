@@ -1,66 +1,87 @@
-import Container from "@/components/ui/Container";
-import SectionHeader from "@/components/ui/SectionHeader";
-import Card from "@/components/ui/Card";
-import { Globe2, Landmark, Network } from "lucide-react";
+import {
+  Globe2,
+  Landmark,
+  Network,
+} from "lucide-react";
 
-const projects = [
+import FeatureCard from "@/components/ui/FeatureCard";
+import SectionHeader from "@/components/ui/SectionHeader";
+
+const projectItems = [
   {
-    region: "Caribbean",
-    title: "National fisheries operations",
-    text: "Supporting fisheries authorities with landing surveys, master data, operational workflows and digital transformation.",
+    eyebrow: "Caribbean",
+    title: "National Fisheries Operations",
+    description:
+      "Supporting fisheries authorities with landing surveys, master data, operational workflows and connected digital services.",
+    image: "/images/projects/national-fisheries-operations.png",
+    imageAlt:
+      "National fisheries operations and digital fisheries administration in the Caribbean",
     icon: Landmark,
+    items: [
+      "Landing surveys",
+      "Master data",
+      "Operational workflows",
+    ],
+    href: "#contact",
   },
   {
-    region: "Europe",
-    title: "EU innovation projects",
-    text: "Working with partners on e-logbooks, landing declarations, VMS, AI and emerging fisheries technologies.",
+    eyebrow: "Europe",
+    title: "EU Innovation Projects",
+    description:
+      "Working with partners on eLogbooks, landing declarations, VMS, AI and emerging fisheries technologies.",
+    image: "/images/projects/eu-innovation-projects.png",
+    imageAlt:
+      "European fisheries innovation project with connected digital technology",
     icon: Network,
+    items: [
+      "Electronic logbooks",
+      "VMS and integrations",
+      "AI-supported operations",
+    ],
+    href: "#contact",
   },
   {
-    region: "Global",
-    title: "Governance maturity",
-    text: "Helping fisheries administrations move from fragmented data collection to integrated governance platforms.",
+    eyebrow: "Global",
+    title: "Governance Maturity",
+    description:
+      "Helping fisheries administrations move from fragmented data collection to integrated governance platforms.",
+    image: "/images/projects/governance-maturity.png",
+    imageAlt:
+      "Global fisheries governance transformation and integrated digital systems",
     icon: Globe2,
+    items: [
+      "Current-state assessment",
+      "Digital transformation",
+      "Integrated governance",
+    ],
+    href: "#contact",
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="bg-slate-50 py-24">
-      <Container>
+    <section
+      id="projects"
+      className="site-section site-section--soft"
+    >
+      <div className="site-container">
         <SectionHeader
           eyebrow="Projects"
-          title="Built for real fisheries operations."
-          text="TFM is designed around practical implementation, national systems, regional cooperation and operational sustainability."
-          align="center"
+          title={
+            <>
+              Built for real
+              <span> fisheries operations.</span>
+            </>
+          }
+          description="TFM supports fisheries authorities, regional organisations and innovation partnerships across national, regional and international operating contexts."
         />
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {projects.map((project) => {
-            const Icon = project.icon;
-
-            return (
-              <Card key={project.title} className="p-8">
-                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-700">
-                  <Icon size={24} />
-                </div>
-
-                <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">
-                  {project.region}
-                </p>
-
-                <h3 className="mt-4 text-2xl font-bold text-slate-950">
-                  {project.title}
-                </h3>
-
-                <p className="mt-4 text-sm leading-6 text-slate-600">
-                  {project.text}
-                </p>
-              </Card>
-            );
-          })}
+        <div className="projects-grid">
+          {projectItems.map((item) => (
+            <FeatureCard key={item.title} {...item} />
+          ))}
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

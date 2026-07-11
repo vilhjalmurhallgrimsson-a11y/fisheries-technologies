@@ -788,3 +788,99 @@ button:focus-visible {
 .test-global-css {
   background: red !important;
 }
+/* =========================================================
+   AI & INNOVATION
+   Same visual language as the TFM Platform section.
+   Add to app/globals.css.
+   ========================================================= */
+
+.ai-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.ai-grid .feature-card__image {
+  aspect-ratio: 16 / 10;
+}
+
+.ai-grid .feature-card__content {
+  min-height: 285px;
+}
+
+.ai-grid .feature-card__content h3 {
+  font-size: 20px;
+}
+
+.ai-grid .feature-card__description {
+  margin-bottom: 18px;
+}
+
+@media (max-width: 1180px) {
+  .ai-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .ai-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .ai-grid .feature-card__content {
+    min-height: auto;
+  }
+}
+/* =========================================================
+   PROJECTS
+   Same visual system as the TFM Platform section.
+   Add to app/globals.css.
+   ========================================================= */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.projects-grid .feature-card__image {
+  aspect-ratio: 16 / 10;
+}
+
+.projects-grid .feature-card__content {
+  min-height: 285px;
+}
+
+.projects-grid .feature-card__content h3 {
+  font-size: 20px;
+}
+
+.projects-grid .feature-card__description {
+  margin-bottom: 18px;
+}
+
+@media (max-width: 1080px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .projects-grid .feature-card__content {
+    min-height: auto;
+  }
+}
+.header-demo-button,
+.header-demo-button:link,
+.header-demo-button:visited,
+.header-demo-button:hover,
+.header-demo-button:active {
+  color: #ffffff;
+  text-decoration: none;
+}

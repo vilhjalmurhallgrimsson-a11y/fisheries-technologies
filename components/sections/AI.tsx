@@ -1,64 +1,101 @@
-import Container from "@/components/ui/Container";
+import {
+  Bot,
+  ChartNoAxesCombined,
+  ScanSearch,
+  ShieldCheck,
+} from "lucide-react";
+
+import FeatureCard from "@/components/ui/FeatureCard";
 import SectionHeader from "@/components/ui/SectionHeader";
-import Card from "@/components/ui/Card";
-import { Bot, ScanSearch, ShieldAlert, LineChart } from "lucide-react";
 
 const aiItems = [
   {
-    title: "AI-assisted capture",
-    text: "Support faster registration and reduce manual entry in operational workflows.",
-    icon: ScanSearch,
-  },
-  {
-    title: "Species recognition",
-    text: "Use image-based recognition to support species identification and validation.",
+    eyebrow: "Assisted Workflows",
+    title: "AI-assisted Capture",
+    description:
+      "Support faster registration, reduce manual entry and improve consistency across operational workflows.",
+    image: "/images/capabilities/ai-assisted-capture.png",
+    imageAlt: "AI-assisted fisheries data capture and workflow support",
     icon: Bot,
+    items: [
+      "Smart field assistance",
+      "Reduced manual entry",
+      "Workflow guidance",
+    ],
+    href: "#contact",
   },
   {
-    title: "Data quality monitoring",
-    text: "Detect missing, inconsistent or suspicious submissions across the platform.",
-    icon: ShieldAlert,
+    eyebrow: "Recognition",
+    title: "Species Recognition",
+    description:
+      "Use image-assisted recognition to support species identification, classification and validation.",
+    image: "/images/capabilities/species-recognition.png",
+    imageAlt: "AI species recognition for fisheries operations",
+    icon: ScanSearch,
+    items: [
+      "Image-assisted identification",
+      "Classification support",
+      "Validation checks",
+    ],
+    href: "#contact",
   },
   {
-    title: "Decision intelligence",
-    text: "Transform operational data into insights for fisheries managers and authorities.",
-    icon: LineChart,
+    eyebrow: "Data Quality",
+    title: "Data Quality Monitoring",
+    description:
+      "Detect missing, inconsistent or suspicious submissions across connected fisheries data sources.",
+    image: "/images/capabilities/data-quality-monitoring.png",
+    imageAlt:
+      "AI data quality monitoring dashboard for fisheries systems",
+    icon: ShieldCheck,
+    items: [
+      "Completeness checks",
+      "Anomaly detection",
+      "Consistency monitoring",
+    ],
+    href: "#contact",
+  },
+  {
+    eyebrow: "Decision Support",
+    title: "Decision Intelligence",
+    description:
+      "Turn operational data into actionable insights for fisheries managers, analysts and authorities.",
+    image: "/images/capabilities/decision-intelligence.png",
+    imageAlt: "AI decision intelligence for fisheries governance",
+    icon: ChartNoAxesCombined,
+    items: [
+      "Operational insights",
+      "Trend analysis",
+      "Decision support",
+    ],
+    href: "#contact",
   },
 ];
 
 export default function AI() {
   return (
-    <section id="insights" className="py-24">
-      <Container>
+    <section
+      id="ai-innovation"
+      className="site-section site-section--white"
+    >
+      <div className="site-container">
         <SectionHeader
           eyebrow="AI & Innovation"
-          title="Turning fisheries data into actionable intelligence."
-          text="TFM can support AI-assisted data capture, validation, monitoring and analytics to improve data quality and operational decision-making."
-          align="center"
+          title={
+            <>
+              Turning fisheries data
+              <span> into actionable intelligence.</span>
+            </>
+          }
+          description="TFM applies practical AI assistance across data capture, validation, recognition, quality monitoring and operational decision support."
         />
 
-        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {aiItems.map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <Card key={item.title}>
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-700">
-                  <Icon size={24} />
-                </div>
-
-                <h3 className="text-lg font-bold text-slate-950">
-                  {item.title}
-                </h3>
-
-                <p className="mt-4 text-sm leading-6 text-slate-600">
-                  {item.text}
-                </p>
-              </Card>
-            );
-          })}
+        <div className="ai-grid">
+          {aiItems.map((item) => (
+            <FeatureCard key={item.title} {...item} />
+          ))}
         </div>
-      </Container>
+      </div>
     </section>
   );
 }
