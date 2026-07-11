@@ -34,13 +34,15 @@ export default function Footer() {
           {/* BRAND */}
           <div className="max-w-[430px]">
             <Link href="/" className="inline-flex items-center gap-4">
-              <Image
-                src="/images/FTSquareDark.png"
-                alt="Fisheries Technologies"
-                width={58}
-                height={58}
-                className="rounded-xl border border-white/10 shadow-lg"
-              />
+              {/*
+  <Image
+    src="/images/FTSquareDark.png"
+    alt="Fisheries Technologies"
+    width={58}
+    height={58}
+    className="rounded-xl border border-white/10 shadow-lg"
+  />
+  */}
 
               <div>
                 <div className="text-lg font-extrabold tracking-[-0.025em]">
