@@ -27,7 +27,7 @@ const spectrumItems = [
     title: "Small-Scale Fisheries",
     description:
       "Mobile-first workflows for fishers, field officers, landing sites and local authorities.",
-    image: "/images/spectrum/small-scale.png",
+    image: "/images/spectrum/small-scale-3.png",
     imageAlt:
       "Small-scale fishing vessel operating close to shore",
     icon: Anchor,
