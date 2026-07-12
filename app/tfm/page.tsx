@@ -45,7 +45,7 @@ const team = [
     role: "Chief Technology Officer (TCO)",
     area: "Technology & Architecture",
     email: "sachin.raibole@fishtech.is",
-    image: "/images/tfm/staff/sachin3_Staff.png",
+    image: "/images/tfm/staff/sachin4_staff.png",
     responsibilities: [
       "Platform architecture",
       "Integrations",
@@ -150,7 +150,7 @@ const projects = [
   {
     name: "FIDEL",
     organisation: "Horizon Europe",
-    image: "/images/projects/fidel_eu2.png",
+    image: "/images/projects/fidel_eu3.png",
   },
 ];
 
