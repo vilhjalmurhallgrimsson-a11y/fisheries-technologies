@@ -695,7 +695,7 @@ function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-9 md:flex-row md:items-center md:justify-between lg:px-10">
         <Link href="/">
           <Image
-            src="/images/logo/SquareLogosWhite.png"
+            src="/images/logo/SquarelogosWhite.png"
             alt="Fisheries Technologies"
             width={82}
             height={25}
