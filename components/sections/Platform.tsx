@@ -156,10 +156,10 @@ export default function Platform() {
                     ))}
                   </ul>
 
-                  <a href={`#${createSlug(capability.title)}`}>
-                    Learn more
-                    <span aria-hidden="true">→</span>
-                  </a>
+                  <a href="#contact">
+  Learn more
+  <span aria-hidden="true">→</span>
+</a>
                 </div>
               </article>
             );

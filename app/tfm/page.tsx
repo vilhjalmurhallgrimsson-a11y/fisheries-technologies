@@ -33,7 +33,7 @@ const team = [
     role: "Chief Executive Officer (CEO)",
     area: "Business Strategy & Partnerships",
     email: "vh@fishtech.is",
-    image: "/images/tfm/staff/villi4_Staff.png",
+    image: "/images/tfm/staff/Villi4_Staff.png",
     responsibilities: [
       "Business strategy",
       "Partnerships",
@@ -145,7 +145,7 @@ const projects = [
   {
     name: "Cooperation",
     organisation: "Regional Fisheries Cooperation",
-    image: "/images/projects/regional2.png",
+    image: "/images/projects/regional3.png",
   },
   {
     name: "FIDEL",
