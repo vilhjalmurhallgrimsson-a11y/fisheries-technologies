@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,7 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Fisheries Technologies | The Fisheries Manager",
   description:
     "Fisheries Technologies provides The Fisheries Manager, an integrated platform for fisheries governance, monitoring, data collection and operational intelligence.",
@@ -38,7 +39,11 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+
+        <GoogleAnalytics gaId="G-T1DYB0JK6H" />
+      </body>
     </html>
   );
 }
