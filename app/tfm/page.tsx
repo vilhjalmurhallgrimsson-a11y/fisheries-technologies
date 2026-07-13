@@ -42,7 +42,7 @@ const team = [
   },
   {
     name: "Sachin Raibole",
-    role: "Chief Technology Officer (TCO)",
+    role: "Chief Technology Officer (CTO)",
     area: "Technology & Architecture",
     email: "sachin.raibole@fishtech.is",
     image: "/images/tfm/staff/sachin4_staff.png",
