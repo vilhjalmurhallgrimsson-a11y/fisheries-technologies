@@ -19,7 +19,7 @@ const resources = [
     description:
       "A strategic perspective on how integrated digital platforms can transform fisheries data into stronger governance, operational intelligence and sustainable outcomes.",
     image: "/images/resources/whitepaper-cover.png",
-    href: "/downloads/Transforming Fisheries Data into Governance, Intelligence and Sustainable Outcomes.pdf",
+    href: "/downloads/whitepaper.pdf",
     icon: FileText,
   },
   {
@@ -28,7 +28,7 @@ const resources = [
     description:
       "A practical maturity model for assessing fisheries governance capabilities, identifying improvement priorities and guiding institutional and digital transformation.",
     image: "/images/resources/cmmfg-cover.png",
-    href: "/downloads/CMM-FG for Fisheries Governance.pdf",
+    href: "/downloads/cmm-fg.pdf",
     icon: Layers3,
   },
 ];
