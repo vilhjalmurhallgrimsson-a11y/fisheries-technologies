@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
+import { sendGAEvent } from "@next/third-parties/google";
 import {
   ArrowRight,
   BookOpen,
@@ -13,6 +15,7 @@ import {
 
 const resources = [
   {
+    analyticsId: "whitepaper",
     type: "White Paper",
     title:
       "Transforming Fisheries Data into Governance, Intelligence and Sustainable Outcomes",
@@ -23,6 +26,7 @@ const resources = [
     icon: FileText,
   },
   {
+    analyticsId: "cmm_fg",
     type: "Framework",
     title: "CMM-FG – Capability Maturity Model for Fisheries Governance",
     description:
@@ -153,13 +157,21 @@ export default function ResourcesPage() {
 
                     <div className="mt-auto pt-8">
                       <a
-                        href={resource.href}
-                        download
-                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-sky-600 px-6 py-3.5 font-semibold !text-white no-underline transition-all duration-200 hover:bg-sky-700 hover:!text-white focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
-                      >
-                        <Download className="h-5 w-5 shrink-0 !text-white" />
-                        <span className="!text-white">Download PDF</span>
-                      </a>
+  href={resource.href}
+  download
+  onClick={() =>
+    sendGAEvent("event", "resource_download", {
+      resource_id: resource.analyticsId,
+      resource_name: resource.title,
+      resource_type: resource.type,
+      file_url: resource.href,
+    })
+  }
+  className="inline-flex items-center justify-center gap-2 rounded-xl bg-sky-600 px-6 py-3.5 font-semibold !text-white no-underline transition-all duration-200 hover:bg-sky-700 hover:!text-white focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
+>
+  <Download className="h-5 w-5 shrink-0 !text-white" />
+  <span className="!text-white">Download PDF</span>
+</a>
                     </div>
                   </div>
                 </article>
@@ -237,12 +249,18 @@ export default function ResourcesPage() {
               </p>
 
               <Link
-                href="/#contact"
-                className="mt-10 inline-flex items-center gap-2 rounded-xl bg-sky-600 px-8 py-4 font-semibold !text-white no-underline transition hover:bg-sky-700 hover:!text-white"
-              >
-                <span className="!text-white">Contact us</span>
-                <ArrowRight className="h-[18px] w-[18px] !text-white" />
-              </Link>
+  href="/#contact"
+  onClick={() =>
+    sendGAEvent("event", "contact_click", {
+      button_location: "resources_cta",
+      page_name: "resources",
+    })
+  }
+  className="mt-10 inline-flex items-center gap-2 rounded-xl bg-sky-600 px-8 py-4 font-semibold !text-white no-underline transition hover:bg-sky-700 hover:!text-white"
+>
+  <span className="!text-white">Contact us</span>
+  <ArrowRight className="h-[18px] w-[18px] !text-white" />
+</Link>
             </div>
           </div>
         </section>
