@@ -282,7 +282,7 @@ export default function Hero() {
 
               <Image
 
-                src="/images/hero/hero-gov.png"
+                src="/images/hero/hero-main.png"
 
                 alt="Fisheries governance platform connecting vessels, field operations, monitoring and analytics"
 
