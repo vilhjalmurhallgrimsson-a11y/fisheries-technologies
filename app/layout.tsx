@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "https://www.fishtech.is";
-const socialImage = "/images/opengraph-fishtech.png";
+const socialImage = "/images/opengraph-fishtech2.png";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
