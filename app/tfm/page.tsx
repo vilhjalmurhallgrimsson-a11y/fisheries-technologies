@@ -15,19 +15,81 @@ import {
   Radar,
   Users,
   Waves,
+  type LucideIcon,
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "The Fisheries Manager | Fisheries Technologies",
+  title: "The Fisheries Manager",
+
   description:
-    "Meet the Fisheries Technologies team and explore The Fisheries Manager platform.",
+    "Explore The Fisheries Manager, an integrated fisheries management platform for data collection, governance, monitoring, compliance, analytics and regional cooperation.",
+
+  alternates: {
+    canonical: "/tfm",
+  },
+
+  openGraph: {
+    title: "The Fisheries Manager | Fisheries Technologies",
+    description:
+      "An integrated digital platform connecting fisheries data collection, governance, monitoring, compliance and operational intelligence.",
+    url: "/tfm",
+    siteName: "Fisheries Technologies",
+    type: "website",
+    images: [
+      {
+        url: "/images/tfm/tfm-hero2.png",
+        width: 1200,
+        height: 630,
+        alt: "The Fisheries Manager digital fisheries management platform",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "The Fisheries Manager | Fisheries Technologies",
+    description:
+      "Integrated fisheries management, governance, monitoring, compliance and analytics.",
+    images: ["/images/tfm/tfm-hero2.png"],
+  },
+
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
-const team = [
+type TeamMember = {
+  name: string;
+  role: string;
+  area: string;
+  email: string;
+  image: string;
+  responsibilities: string[];
+};
+
+type PlatformArea = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  image: string;
+  icon: LucideIcon;
+};
+
+type Project = {
+  name: string;
+  organisation: string;
+  image: string;
+};
+
+const team: TeamMember[] = [
   {
     name: "Vilhjálmur Hallgrímsson",
     role: "Chief Executive Officer (CEO)",
@@ -54,31 +116,31 @@ const team = [
   },
   {
     name: "Ravi Mundhe",
-    role: "Head of market & Sales - APAC",
-    area: "Implementation & Delivery",
+    role: "Head of Market & Sales – APAC",
+    area: "Market Development & Customer Engagement",
     email: "ravi.mundhe@fishtech.is",
     image: "/images/tfm/staff/Ravi_Staff3.png",
     responsibilities: [
-      "Business Development",
-      "Strategic Partnerships",
-      "Customer Engagement",
+      "Business development",
+      "Strategic partnerships",
+      "Customer engagement",
     ],
   },
   {
     name: "Mahesh Mankar",
-    role: "Head of Development - APAC",
-    area: "Product Development",
+    role: "Head of Development – APAC",
+    area: "Product Development & Delivery",
     email: "mahesh.mankar@fishtech.is",
     image: "/images/tfm/staff/Mahesh_Staff.png",
     responsibilities: [
-      "Market Expansion",
-      "Requirements",
-      "Strategic Growth",
+      "Product development",
+      "Technical delivery",
+      "Solution implementation",
     ],
   },
 ];
 
-const platformAreas = [
+const platformAreas: PlatformArea[] = [
   {
     eyebrow: "Operational Data",
     title: "Reliable data from the field to the national level",
@@ -103,7 +165,8 @@ const platformAreas = [
     image: "/images/tfm/mon-compl.png",
     icon: Radar,
   },
-  {    eyebrow: "Analytics",
+  {
+    eyebrow: "Analytics",
     title: "Turn fisheries data into decisions",
     description:
       "Use operational dashboards, reporting, data-quality controls and analytics to strengthen planning and decision-making.",
@@ -116,7 +179,7 @@ const platformAreas = [
     description:
       "Support secure information exchange across national authorities, regional organisations, research initiatives and external platforms.",
     image: "/images/tfm/regionalop2.png",
-    icon: Network,  
+    icon: Network,
   },
 ];
 
@@ -131,7 +194,7 @@ const audiences = [
   "Analytics and decision support",
 ];
 
-const projects = [
+const projects: Project[] = [
   {
     name: "Jamaica",
     organisation: "National Fisheries Authority",
@@ -143,8 +206,8 @@ const projects = [
     image: "/images/projects/skn3.png",
   },
   {
-    name: "Cooperation",
-    organisation: "Regional Fisheries Cooperation",
+    name: "Regional Cooperation",
+    organisation: "Regional Fisheries Organisations",
     image: "/images/projects/regional3.png",
   },
   {
@@ -182,6 +245,7 @@ function Hero() {
       />
 
       <div
+        aria-hidden="true"
         className="absolute inset-0"
         style={{
           background:
@@ -189,36 +253,32 @@ function Hero() {
         }}
       />
 
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#031b33]/35 to-transparent" />
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#031b33]/35 to-transparent"
+      />
 
       <div className="relative mx-auto flex min-h-[760px] max-w-7xl flex-col px-6 py-8 lg:min-h-[820px] lg:px-10">
-  <header className="flex items-center justify-between">
-    <Link
-      href="https://www.fishtech.is"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Fisheries Technologies home"
-    >
-      <Image
-        src="/images/logo/SquarelogosWhite.png"
-        alt="Fisheries Technologies"
-        width={130}
-        height={40}
-        priority
-        className="h-auto w-[120px] sm:w-[130px]"
-      />
-    </Link>
+        <header className="flex items-center justify-between">
+          <Link href="/" aria-label="Fisheries Technologies home">
+            <Image
+              src="/images/logo/SquarelogosWhite.png"
+              alt="Fisheries Technologies"
+              width={130}
+              height={40}
+              priority
+              className="h-auto w-[120px] sm:w-[130px]"
+            />
+          </Link>
 
-    <Link
-  href="https://www.fishtech.is"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="hidden sm:inline-flex items-center gap-2 rounded-lg bg-sky-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-950/20 transition hover:bg-sky-400"
->
-  Visit the main website
-  <ExternalLink className="h-4 w-4" />
-</Link>
-  </header>
+          <Link
+            href="/"
+            className="hidden items-center gap-2 rounded-lg bg-sky-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-950/20 transition hover:bg-sky-400 sm:inline-flex"
+          >
+            Visit the main website
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </header>
 
         <div className="my-auto max-w-2xl py-20 lg:py-28">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-300">
@@ -317,7 +377,10 @@ function Introduction() {
         </div>
 
         <div className="relative">
-          <div className="absolute -inset-5 -z-10 rounded-[2.5rem] bg-gradient-to-br from-sky-100 via-transparent to-blue-50 blur-2xl" />
+          <div
+            aria-hidden="true"
+            className="absolute -inset-5 -z-10 rounded-[2.5rem] bg-gradient-to-br from-sky-100 via-transparent to-blue-50 blur-2xl"
+          />
 
           <div className="relative aspect-[16/11] overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-100 shadow-2xl shadow-slate-900/10">
             <Image
@@ -366,7 +429,10 @@ function TeamSection() {
                   className="object-cover object-top transition duration-700 group-hover:scale-[1.03]"
                 />
 
-                <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-slate-950/70 to-transparent" />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-slate-950/70 to-transparent"
+                />
               </div>
 
               <div className="px-1 pt-6">
@@ -388,7 +454,7 @@ function TeamSection() {
                       key={responsibility}
                       className="flex items-center gap-2 text-sm text-slate-600"
                     >
-                      <Check className="h-4 w-4 text-sky-600" />
+                      <Check className="h-4 w-4 shrink-0 text-sky-600" />
                       {responsibility}
                     </div>
                   ))}
@@ -396,8 +462,6 @@ function TeamSection() {
 
                 <a
                   href={`mailto:${member.email}?subject=Continuing our FishTech conversation`}
-                   target="_blank"
-  rel="noopener noreferrer"
                   className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-slate-950 transition hover:text-sky-600"
                 >
                   <Mail className="h-4 w-4" />
@@ -565,13 +629,16 @@ function ProjectsSection() {
             >
               <Image
                 src={project.image}
-                alt={project.name}
+                alt={`${project.name} – ${project.organisation}`}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
                 className="object-cover transition duration-700 group-hover:scale-105"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/15 to-transparent" />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/15 to-transparent"
+              />
 
               <div className="absolute inset-x-0 bottom-0 p-7 text-white">
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-sky-300">
@@ -609,9 +676,13 @@ function ContactSection() {
         className="absolute inset-0 -z-20 object-cover"
       />
 
-      <div className="absolute inset-0 -z-10 bg-[#031b33]/78" />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-[#031b33]/78"
+      />
 
       <div
+        aria-hidden="true"
         className="absolute inset-0 -z-10"
         style={{
           background:
@@ -648,21 +719,19 @@ function ContactSection() {
             <a
               href="https://www.linkedin.com/company/fisheries-technologies"
               target="_blank"
-             rel="noopener noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg border border-white/30 bg-white/5 px-7 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10"
             >
-            
               Connect on LinkedIn
+              <ExternalLink className="h-4 w-4" />
             </a>
 
             <Link
               href="/"
-              target="_blank"
-  rel="noopener noreferrer"
               className="inline-flex min-h-13 items-center justify-center gap-2 rounded-lg border border-white/30 bg-white/5 px-7 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10"
             >
               Visit FishTech
-              <ExternalLink className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
@@ -675,6 +744,7 @@ function ContactSection() {
               className="group"
             >
               <p className="text-sm font-semibold text-white">{member.name}</p>
+
               <p className="mt-1 text-sm text-white/50">{member.role}</p>
 
               <div className="mt-3 flex items-center gap-2 text-sm text-sky-300 transition group-hover:text-sky-200">
@@ -693,7 +763,7 @@ function Footer() {
   return (
     <footer className="bg-[#02172b] text-white">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-9 md:flex-row md:items-center md:justify-between lg:px-10">
-        <Link href="/">
+        <Link href="/" aria-label="Fisheries Technologies home">
           <Image
             src="/images/logo/SquarelogosWhite.png"
             alt="Fisheries Technologies"
@@ -714,8 +784,6 @@ function Footer() {
 
           <Link
             href="/"
-              target="_blank"
-  rel="noopener noreferrer"
             className="flex items-center gap-2 transition hover:text-white"
           >
             <Globe2 className="h-4 w-4" />
