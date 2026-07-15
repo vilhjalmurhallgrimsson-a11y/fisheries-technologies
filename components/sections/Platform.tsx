@@ -110,7 +110,7 @@ export default function Platform() {
             </h2>
 
             <p>
-              The Fisheries Manager is an integrated fisheries management system that connects electronic logbooks, landing surveys, fisheries monitoring, Monitoring, Control & Surveillance (MCS), governance and operational analytics in one configurable platform.
+              The Fisheries Manager is an integrated fisheries management system connecting electronic logbooks, landing surveys, Monitoring, Control and Surveillance (MCS), governance and operational analytics to strengthen compliance and combat Illegal, Unreported and Unregulated (IUU) fishing.
             </p>
           </div>
         </header>
