@@ -73,7 +73,7 @@ export default function Projects() {
               <span> fisheries operations.</span>
             </>
           }
-          description="TFM supports fisheries authorities, regional organisations and innovation partnerships across national, regional and international operating contexts."
+          description="Delivering digital fisheries management systems for national authorities, regional fisheries organisations and international research programmes.TFM supports fisheries authorities, regional organisations and innovation partnerships across national, regional and international operating contexts."
         />
 
         <div className="projects-grid">

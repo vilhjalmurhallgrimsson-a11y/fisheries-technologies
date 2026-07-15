@@ -41,7 +41,7 @@ const capabilities: Capability[] = [
   },
   {
     category: "MONITORING",
-    title: "Monitoring & Compliance",
+    title: "Monitoring, Control & Surveillance (MCS)",
     description:
       "Monitor vessel activity, inspections and operational exceptions from one environment.",
     image: "/images/platform/monitoring.png",
@@ -110,9 +110,7 @@ export default function Platform() {
             </h2>
 
             <p>
-              TFM combines operational data collection, governance workflows,
-              monitoring, compliance, analytics and integration in one
-              connected environment.
+              The Fisheries Manager is an integrated fisheries management system that connects electronic logbooks, landing surveys, fisheries monitoring, compliance, governance and operational analytics in one configurable platform.
             </p>
           </div>
         </header>

@@ -15,11 +15,11 @@ import {
 } from "lucide-react";
 
 const highlights = [
-  "National Fisheries Systems",
-  "Regional Governance",
-  "Mobile Data Collection",
-  "Monitoring & Compliance",
-  "Analytics & AI Assistance",
+  "National Fisheries Management Systems",
+  "Regional Fisheries Governance",
+  "Electronic Logbooks & Mobile Data Collection",
+  "Monitoring & Compliance (MCS)",
+  "Analytics & AI Decision Support",
 ];
 
 
@@ -87,7 +87,7 @@ export default function Hero() {
             <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/80 px-4 py-2 shadow-sm backdrop-blur">
               <Sparkles className="h-4 w-4 text-blue-600" />
               <span className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">
-                Integrated fisheries governance platform
+                Integrated Fisheries Management Software
               </span>
             </div>
 
@@ -99,9 +99,7 @@ export default function Hero() {
             </h1>
 
             <p className="mt-7 max-w-xl text-lg leading-8 text-slate-600">
-              Supporting fisheries authorities with AI-assisted data
-              collection, intelligent monitoring and modern governance across
-              every scale of fisheries.
+              Supporting fisheries authorities with integrated fisheries management software, AI-assisted fisheries data collection, monitoring, compliance and operational intelligence for sustainable fisheries governance.
             </p>
 
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
