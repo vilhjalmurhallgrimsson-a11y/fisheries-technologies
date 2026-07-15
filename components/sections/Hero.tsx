@@ -99,7 +99,7 @@ export default function Hero() {
             </h1>
 
             <p className="mt-7 max-w-xl text-lg leading-8 text-slate-600">
-              Supporting fisheries authorities with integrated fisheries management software, AI-assisted fisheries data collection, monitoring, compliance and operational intelligence for sustainable fisheries governance.
+              Supporting fisheries authorities with integrated fisheries management software, AI-assisted fisheries data collection, monitoring, control & surveillance (MCS) and operational intelligence for sustainable fisheries governance.
             </p>
 
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">

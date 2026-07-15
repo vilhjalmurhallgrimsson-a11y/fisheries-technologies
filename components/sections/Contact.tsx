@@ -9,7 +9,7 @@ const highlights = [
   "National Fisheries Management Systems",
   "Regional Fisheries Governance",
   "Electronic Logbooks & Data Collection",
-  "Fisheries Monitoring & Compliance",
+  "Fisheries Monitoring, Control & Surveillance (MCS)",
   "Fisheries Analytics & AI Assistance",
 ];
 
@@ -73,7 +73,7 @@ export default function Contact() {
               authorities, regional organisations and international programmes
               through one configurable fisheries management system for
               electronic logbooks, landing surveys, data collection,
-              governance, monitoring, compliance and fisheries analytics.
+              governance, monitoring, control & surveillance (MCS) and fisheries analytics.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
@@ -150,7 +150,7 @@ export default function Contact() {
 
               <p className="mt-2 text-[15px] leading-7 text-white/80">
                 Connecting field operations, electronic reporting, monitoring,
-                compliance and national and regional fisheries governance.
+                control & surveillance (MCS) and national and regional fisheries governance.
               </p>
             </div>
           </div>
