@@ -14,9 +14,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Fisheries Technologies | The Fisheries Manager",
+  metadataBase: new URL("https://www.fishtech.is"),
+
+  title: {
+    default: "Fisheries Technologies | The Fisheries Manager",
+    template: "%s | Fisheries Technologies",
+  },
+
   description:
     "Fisheries Technologies provides The Fisheries Manager, an integrated platform for fisheries governance, monitoring, data collection and operational intelligence.",
+
   keywords: [
     "fisheries management",
     "fisheries governance",
@@ -27,6 +34,48 @@ export const metadata: Metadata = {
     "landing surveys",
     "fisheries technology",
   ],
+
+  alternates: {
+    canonical: "/",
+  },
+
+  openGraph: {
+    title: "Fisheries Technologies | The Fisheries Manager",
+    description:
+      "An integrated digital platform for fisheries governance, monitoring, data collection and operational intelligence.",
+    url: "/",
+    siteName: "Fisheries Technologies",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/images/fisheries-governance.png",
+        width: 1200,
+        height: 630,
+        alt: "Fisheries Technologies digital fisheries management platform",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Fisheries Technologies | The Fisheries Manager",
+    description:
+      "An integrated digital platform for fisheries governance, monitoring, data collection and operational intelligence.",
+    images: ["/images/fisheries-governance.png"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export default function RootLayout({
