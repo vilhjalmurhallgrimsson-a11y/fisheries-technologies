@@ -1,267 +1,142 @@
 "use client";
 
-
-
 import Image from "next/image";
-
 import Link from "next/link";
-
 import { motion } from "framer-motion";
-
 import {
 
   ArrowRight,
-
   BarChart3,
-
   Check,
-
   Database,
-
   RadioTower,
-
   ShieldCheck,
-
   Sparkles,
-
 } from "lucide-react";
 
-
-
 const highlights = [
-
   "National Fisheries Systems",
-
   "Regional Governance",
-
   "Mobile Data Collection",
-
   "Monitoring & Compliance",
-
   "Analytics & AI Assistance",
-
 ];
-
 
 
 const aiCapabilities = [
-
   {
-
     label: "AI Assistance",
-
     icon: Sparkles,
-
   },
 
   {
-
     label: "Data Quality",
-
     icon: Database,
-
   },
 
   {
-
     label: "Monitoring",
-
     icon: RadioTower,
-
   },
 
   {
-
     label: "Decision Support",
-
     icon: BarChart3,
-
   },
-
 ];
-
 
 
 const aiInsights = [
-
   "Species confidence 98%",
-
   "Landing anomaly detected",
-
   "Catch forecast updated",
-
   "Recommendation generated",
-
 ];
 
 
-
 export default function Hero() {
-
   return (
-
     <section
-
       id="solutions"
-
       className="relative isolate overflow-hidden bg-white"
-
     >
-
       <div
-
         aria-hidden="true"
-
         className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_15%_25%,rgba(219,234,254,0.9),transparent_38%),radial-gradient(circle_at_85%_20%,rgba(224,242,254,0.8),transparent_38%),linear-gradient(to_bottom,#ffffff,#f8fafc)]"
-
       />
 
-
-
       <div
-
         aria-hidden="true"
-
         className="absolute -left-40 top-20 -z-10 h-[420px] w-[420px] rounded-full bg-blue-200/30 blur-3xl"
-
       />
-
-
 
       <div
-
         aria-hidden="true"
-
         className="absolute -right-32 bottom-0 -z-10 h-[480px] w-[480px] rounded-full bg-cyan-200/30 blur-3xl"
-
       />
-
-
 
       <div className="mx-auto flex min-h-[760px] max-w-[1500px] items-center px-6 py-24 lg:min-h-[820px] lg:px-10 lg:py-28 xl:px-14">
-
         <div className="grid w-full items-center gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-12 xl:grid-cols-[0.68fr_1.32fr] xl:gap-16">
-
           <motion.div
-
             initial={{ opacity: 0, y: 18 }}
-
             animate={{ opacity: 1, y: 0 }}
-
             transition={{ duration: 0.7 }}
-
             className="relative z-10"
-
           >
 
             <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/80 px-4 py-2 shadow-sm backdrop-blur">
-
               <Sparkles className="h-4 w-4 text-blue-600" />
-
-
-
               <span className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">
-
                 Integrated fisheries governance platform
-
               </span>
-
             </div>
-
-
 
             <h1 className="mt-7 max-w-3xl text-5xl font-semibold leading-[0.96] tracking-[-0.055em] text-slate-950 sm:text-6xl lg:text-[64px] xl:text-[72px]">
-
               Governing Fisheries
-
               <span className="mt-2 block text-blue-600">
-
                 at Every Scale
-
               </span>
-
             </h1>
 
-
-
             <p className="mt-7 max-w-xl text-lg leading-8 text-slate-600">
-
               Supporting fisheries authorities with AI-assisted data
-
               collection, intelligent monitoring and modern governance across
-
               every scale of fisheries.
-
             </p>
 
-
-
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-
               <Link
-
                 href="mailto:info@fishtech.is"
-
                 target="_blank"
-
                 rel="noopener noreferrer"
-
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3.5 text-sm font-semibold !text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-700 hover:!text-white"
-
               >
-
                 Request a demo
-
                 <ArrowRight className="h-4 w-4" />
-
               </Link>
-
-
 
               <Link
-
                 href="#platform"
-
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white/80 px-6 py-3.5 text-sm font-semibold text-slate-800 transition hover:border-slate-400 hover:bg-white"
-
               >
-
                 Explore the platform
-
               </Link>
-
             </div>
-
-
 
             <div className="mt-10 grid gap-3 sm:grid-cols-2">
-
               {highlights.map((item) => (
-
                 <div
-
                   key={item}
-
                   className="flex items-center gap-3 text-sm font-medium text-slate-700"
-
                 >
-
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-100">
-
                     <Check className="h-3.5 w-3.5 text-blue-700" />
-
                   </span>
 
-
-
                   <span>{item}</span>
-
                 </div>
-
               ))}
-
             </div>
-
           </motion.div>
 
 

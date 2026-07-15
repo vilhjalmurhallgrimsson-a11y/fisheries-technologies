@@ -35,10 +35,6 @@ export const metadata: Metadata = {
     "fisheries technology",
   ],
 
-  alternates: {
-    canonical: "/",
-  },
-
   openGraph: {
     title: "Fisheries Technologies | The Fisheries Manager",
     description:
@@ -90,7 +86,6 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         {children}
-
         <GoogleAnalytics gaId="G-T1DYB0JK6H" />
       </body>
     </html>
